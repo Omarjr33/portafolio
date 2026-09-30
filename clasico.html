@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Omar Cardona · Desarrollador Full Stack</title>
+  <meta name="description" content="Portafolio de Omar Cardona, desarrollador full stack en Colombia. Aplicaciones web con Next.js, React, Node, Python y C#, con base en diseño y producción audiovisual.">
+  <meta name="theme-color" content="#f3f3f6">
+  <meta property="og:title" content="Omar Cardona · Desarrollador Full Stack">
+  <meta property="og:description" content="Aplicaciones web que se ven bien y funcionan. Next.js, React, Python, C#, AWS.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<a class="skip" href="#inicio">Saltar al contenido</a>
+
+<header class="nav-wrap">
+  <nav class="nav" aria-label="Principal">
+    <a class="brand" href="#inicio" aria-label="Inicio">
+      <span class="brand-mark">OC</span>
+      <span class="brand-name">Omar Cardona</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#habilidades">Habilidades</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Cambiar tema">
+        <svg class="ico-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="ico-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <a class="btn btn-ghost btn-sm" href="index.html">Modo interactivo</a>
+      <a class="btn btn-dark btn-sm" href="#contacto">Hablemos</a>
+      <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#sobre-mi">Sobre mí</a>
+    <a href="#experiencia">Experiencia</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#habilidades">Habilidades</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero container" id="inicio">
+    <div class="stage">
+      <div class="stage-bg" aria-hidden="true">
+        <span class="stage-glow"></span>
+        <span class="stage-grid"></span>
+        <span class="stage-line"></span>
+      </div>
+
+      <div class="stage-grid-layout">
+        <div class="stage-copy">
+          <p class="chip chip-dark reveal"><span class="dot"></span> Disponible para nuevos proyectos</p>
+          <p class="stage-kicker reveal" style="--d:.05s">Desarrollador Full Stack · Colombia</p>
+          <h1 class="reveal" style="--d:.1s">
+            Omar Cardona
+            <span class="h1-sub">Construyo productos digitales de punta a punta.</span>
+          </h1>
+          <p class="lead reveal" style="--d:.15s">
+            Diseño, frontend, backend y despliegue en la nube. Next.js, React, Python y C#,
+            con un ojo de diseñador y cinco años entregando proyectos a empresas reales.
+          </p>
+          <div class="hero-cta reveal" style="--d:.2s">
+            <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
+            <a class="btn btn-outline" href="assets/cv/Omar-Cardona-CV.pdf" download>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M6 11l6 6 6-6M4 21h16"/></svg>
+              Descargar CV
+            </a>
+          </div>
+          <ul class="stage-facts reveal" style="--d:.25s">
+            <li><strong>5+</strong><span>años</span></li>
+            <li><strong>3</strong><span>apps en producción</span></li>
+            <li><strong>10+</strong><span>clientes</span></li>
+            <li><strong id="stat-repos">24</strong><span>repos públicos</span></li>
+          </ul>
+        </div>
+
+        <div class="showcase reveal" style="--d:.2s" id="showcase">
+          <div class="browser">
+            <div class="browser-bar">
+              <span class="browser-dots"><i></i><i></i><i></i></span>
+              <span class="browser-url" id="showcase-url">domiva-app.store</span>
+              <span class="browser-live" id="showcase-live"><span class="dot"></span> en vivo</span>
+            </div>
+            <div class="browser-screen">
+              <img class="shot is-active" src="assets/projects/domiva.webp" alt="Domiva" data-url="domiva-app.store" data-live="1" data-target="#p-domiva">
+              <img class="shot" src="assets/projects/asoprovipas.webp" alt="ASOPROVIPAS" data-url="asoprovipas.com" data-target="#p-asoprovipas" loading="lazy">
+              <img class="shot" src="assets/projects/facial.webp" alt="Registro facial" data-url="localhost:8000 · panel en vivo" data-target="#p-facial" loading="lazy">
+              <img class="shot" src="assets/projects/f1.webp" alt="Simulador Fórmula 1" data-url="localhost:5173" data-target="#p-f1" loading="lazy">
+              <img class="shot" src="assets/projects/movie.webp" alt="MovieFlix" data-url="movieflix · catálogo" data-target="#p-movie" loading="lazy">
+              <img class="shot" src="assets/projects/boda.webp" alt="Invitación de boda" data-url="invitación · lucas & laura" data-target="#p-boda" loading="lazy">
+            </div>
+          </div>
+          <div class="showcase-tabs" role="tablist" aria-label="Proyectos destacados">
+            <button class="stab is-active" type="button" data-i="0" role="tab" aria-selected="true">Domiva</button>
+            <button class="stab" type="button" data-i="1" role="tab" aria-selected="false">ASOPROVIPAS</button>
+            <button class="stab" type="button" data-i="2" role="tab" aria-selected="false">Registro facial</button>
+            <button class="stab" type="button" data-i="3" role="tab" aria-selected="false">Fórmula 1</button>
+            <button class="stab" type="button" data-i="4" role="tab" aria-selected="false">MovieFlix</button>
+            <button class="stab" type="button" data-i="5" role="tab" aria-selected="false">Invitaciones</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="stage-foot">
+        <p class="logos-title">He trabajado con</p>
+        <div class="marquee">
+          <div class="marquee-track">
+            <span>Globant</span><span>Vishnu Security</span><span>Pamaro Comunicaciones</span><span>MS Construcciones</span><span>HR Construcciones</span><span>Faitex</span><span>Film Master</span><span>Castro de Quintero</span><span>IPUC</span><span>ASOPROVIPAS</span>
+            <span>Globant</span><span>Vishnu Security</span><span>Pamaro Comunicaciones</span><span>MS Construcciones</span><span>HR Construcciones</span><span>Faitex</span><span>Film Master</span><span>Castro de Quintero</span><span>IPUC</span><span>ASOPROVIPAS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE MI -->
+  <section class="section container" id="sobre-mi">
+    <div class="section-head reveal">
+      <p class="eyebrow">01 · Sobre mí</p>
+      <h2>Del diseño al despliegue, con el mismo cuidado.</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>
+          Empecé en el mundo audiovisual y el marketing digital: dirigí equipos creativos, produje campañas y
+          construí las páginas web de las empresas con las que trabajaba. Ese camino me llevó al desarrollo de
+          software, donde hoy me concentro por completo.
+        </p>
+        <p>
+          Me formé como Técnico en Sistemas en el SENA y como desarrollador en Campusland. Pasé por Globant como
+          trainee y luego como data scientist junior, trabajando con Scrum en equipos remotos. Hoy construyo
+          aplicaciones completas: frontend, backend, base de datos y despliegue en AWS.
+        </p>
+        <p>
+          Lo que me diferencia es el ojo de diseño. Sé que un producto no solo debe funcionar, también tiene que
+          sentirse bien al usarlo.
+        </p>
+      </div>
+      <div class="about-bento">
+        <div class="bento-card reveal" style="--d:.05s">
+          <span class="bento-icon">📍</span>
+          <strong>Colombia</strong>
+          <span>Trabajo remoto para cualquier zona horaria</span>
+        </div>
+        <div class="bento-card reveal" style="--d:.1s">
+          <span class="bento-icon">🗣️</span>
+          <strong>Español nativo · Inglés A2</strong>
+          <span>Documentación técnica en ambos idiomas</span>
+        </div>
+        <div class="bento-card reveal" style="--d:.15s">
+          <span class="bento-icon">🎬</span>
+          <strong>Audiovisual y diseño</strong>
+          <span>Photoshop, Premiere, After Effects, Figma</span>
+        </div>
+        <div class="bento-card reveal" style="--d:.2s">
+          <span class="bento-icon">☁️</span>
+          <strong>Cloud</strong>
+          <span>AWS EC2, RDS, ECR, CodeBuild, Rekognition</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCIA -->
+  <section class="section container" id="experiencia">
+    <div class="section-head reveal">
+      <p class="eyebrow">02 · Experiencia</p>
+      <h2>Dónde he trabajado.</h2>
+    </div>
+    <ol class="timeline">
+      <li class="tl-item reveal">
+        <div class="tl-meta"><span class="tl-date">Sep 2025 · Mar 2026</span><span class="tl-place">Remoto</span></div>
+        <div class="tl-card">
+          <h3>Data Scientist Jr <span class="tl-company">Globant</span></h3>
+          <p>Documentación y optimización de procesos de análisis de riesgo de tarjetas, mejorando trazabilidad y eficiencia operativa. Especificaciones funcionales y documentación técnica.</p>
+          <div class="tags"><span>SAS</span><span>Excel</span><span>Documentación técnica</span></div>
+        </div>
+      </li>
+      <li class="tl-item reveal">
+        <div class="tl-meta"><span class="tl-date">Dic 2024 · Sep 2025</span><span class="tl-place">Remoto</span></div>
+        <div class="tl-card">
+          <h3>Trainee Developer <span class="tl-company">Globant</span></h3>
+          <p>Desarrollo de prototipos y proyectos pequeños con funcionalidades backend y frontend. Participación en sprints Scrum: daily, planificación y retrospectivas.</p>
+          <div class="tags"><span>HTML · CSS</span><span>Python</span><span>Java</span><span>Scrum</span></div>
+        </div>
+      </li>
+      <li class="tl-item reveal">
+        <div class="tl-meta"><span class="tl-date">Oct 2023</span><span class="tl-place">Valledupar · Bucaramanga</span></div>
+        <div class="tl-card">
+          <h3>Director de Marketing <span class="tl-company">Vishnu Security</span></h3>
+          <p>Estrategia de expansión para captar nuevos clientes. Creación y gestión de la página web de la empresa y contenido optimizado para atraer prospectos.</p>
+          <div class="tags"><span>Web</span><span>Estrategia</span><span>Contenido</span></div>
+        </div>
+      </li>
+      <li class="tl-item reveal">
+        <div class="tl-meta"><span class="tl-date">Ago 2023 · Oct 2023</span><span class="tl-place">Valledupar</span></div>
+        <div class="tl-card">
+          <h3>Editor y Community Manager <span class="tl-company">Campaña María Isabel Campo</span></h3>
+          <p>Contenido estratégico que aumentó el engagement en redes un 20 %. Gestión de la comunidad digital y comunicación entre el equipo y la candidata.</p>
+          <div class="tags"><span>Redes</span><span>Edición</span></div>
+        </div>
+      </li>
+      <li class="tl-item reveal">
+        <div class="tl-meta"><span class="tl-date">Sep 2021 · Feb 2022</span><span class="tl-place">Valledupar</span></div>
+        <div class="tl-card">
+          <h3>Realizador de Contenido y Páginas Web <span class="tl-company">MS Construcciones</span></h3>
+          <p>Optimización del sitio web y redes sociales, con un incremento del 40 % en tráfico web. Estrategias de marketing digital que multiplicaron los clientes potenciales.</p>
+          <div class="tags"><span>Web</span><span>SEO</span><span>Marketing digital</span></div>
+        </div>
+      </li>
+      <li class="tl-item reveal">
+        <div class="tl-meta"><span class="tl-date">Ago 2020 · Ene 2022</span><span class="tl-place">Valledupar</span></div>
+        <div class="tl-card">
+          <h3>Director Creativo y Gerente <span class="tl-company">Pamaro Comunicaciones</span></h3>
+          <p>Lideré la estrategia de marketing y un equipo de trabajo. Campañas creativas que aumentaron la cartera de clientes un 25 % y la productividad del equipo un 30 %.</p>
+          <div class="tags"><span>Liderazgo</span><span>Dirección creativa</span><span>Producción</span></div>
+        </div>
+      </li>
+    </ol>
+    <p class="tl-extra reveal">También he colaborado con Faitex, Film Master, Castro de Quintero, HR Construcciones y la Iglesia Pentecostal Unida de Colombia en marketing, web y producción audiovisual.</p>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section class="section container" id="proyectos">
+    <div class="section-head reveal">
+      <p class="eyebrow">03 · Proyectos</p>
+      <h2>Trabajo seleccionado.</h2>
+      <div class="filters" role="tablist" aria-label="Filtrar proyectos">
+        <button class="filter is-active" data-filter="all" type="button">Todos</button>
+        <button class="filter" data-filter="web" type="button">Web apps</button>
+        <button class="filter" data-filter="backend" type="button">Backend y datos</button>
+        <button class="filter" data-filter="front" type="button">Frontend</button>
+      </div>
+    </div>
+
+    <div class="projects">
+
+      <article class="project project-lg reveal" id="p-domiva" data-cat="web">
+        <button class="cover-btn" type="button" data-preview="assets/projects/domiva.webp" data-live="https://domiva-app.store/restaurants" data-title="Domiva" aria-label="Ver vista previa de Domiva">
+          <img class="cover cover-img" src="assets/projects/domiva.webp" alt="Pantalla principal de Domiva con comercios y productos" loading="lazy">
+          <span class="cover-hint"><span class="dot"></span> En vivo · ver demo</span>
+        </button>
+        <div class="project-body">
+          <div class="project-top"><span class="badge badge-live">En producción</span><span class="project-year">2026</span></div>
+          <h3>Domiva</h3>
+          <p>Plataforma de pedidos a domicilio en motocarro para comercios y restaurantes de Manaure: catálogo por negocio, carrito, cuentas de cliente y panel para cada comercio. Desplegada en AWS con EC2, RDS PostgreSQL, ECR y CodeBuild, con HTTPS por Caddy.</p>
+          <div class="tags"><span>Node.js</span><span>PostgreSQL</span><span>Docker</span><span>AWS</span></div>
+          <div class="project-links">
+            <a class="link-arrow" href="https://domiva-app.store" target="_blank" rel="noopener">domiva-app.store</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal" id="p-asoprovipas" data-cat="web">
+        <button class="cover-btn" type="button" data-preview="assets/projects/asoprovipas.webp" data-title="ASOPROVIPAS" aria-label="Ver vista previa de ASOPROVIPAS">
+          <img class="cover cover-img" src="assets/projects/asoprovipas.webp" alt="Portada del sitio de ASOPROVIPAS" loading="lazy">
+          <span class="cover-hint">Ver captura</span>
+        </button>
+        <div class="project-body">
+          <div class="project-top"><span class="badge">Cliente</span><span class="project-year">2026</span></div>
+          <h3>ASOPROVIPAS</h3>
+          <p>Sitio institucional y portal del asociado para una asociación de vivienda: simulador de crédito, formularios por pasos con radicado, pagos por PSE, panel administrativo con tablero y exportación a CSV.</p>
+          <div class="tags"><span>Next.js 16</span><span>TypeScript</span><span>Prisma</span><span>PostgreSQL</span><span>Tailwind</span></div>
+        </div>
+      </article>
+
+      <article class="project reveal" id="p-facial" data-cat="backend">
+        <button class="cover-btn" type="button" data-preview="assets/projects/facial.webp" data-title="Registro de asistencia facial" aria-label="Ver vista previa del registro facial">
+          <img class="cover cover-img" src="assets/projects/facial.webp" alt="Panel en vivo del sistema de registro facial" loading="lazy">
+          <span class="cover-hint">Ver captura</span>
+        </button>
+        <div class="project-body">
+          <div class="project-top"><span class="badge">Cliente</span><span class="project-year">2026</span></div>
+          <h3>Registro de asistencia facial</h3>
+          <p>Sistema de ingreso por reconocimiento facial con cámaras USB, RTSP y ONVIF. Panel en vivo con detecciones en tiempo real, personas, pendientes y reportes. Backend FastAPI con InsightFace y frontend React.</p>
+          <div class="tags"><span>Python</span><span>FastAPI</span><span>InsightFace</span><span>React</span><span>AWS Rekognition</span></div>
+        </div>
+      </article>
+
+      <article class="project reveal" id="p-f1" data-cat="front">
+        <button class="cover-btn" type="button" data-preview="assets/projects/f1.webp" data-title="Simulador Fórmula 1" aria-label="Ver vista previa del simulador de Fórmula 1">
+          <img class="cover cover-img" src="assets/projects/f1.webp" alt="Portada del simulador de Fórmula 1" loading="lazy">
+          <span class="cover-hint">Ver captura</span>
+        </button>
+        <div class="project-body">
+          <div class="project-top"><span class="badge">Open source</span><span class="project-year">2025</span></div>
+          <h3>Simulador Fórmula 1</h3>
+          <p>Gestión de escuderías, pilotos, circuitos y vehículos, más un simulador de carreras con clima variable. Web Components en JavaScript puro, Vite y una API REST con JSON Server.</p>
+          <div class="tags"><span>JavaScript</span><span>Vite</span><span>Bootstrap</span><span>JSON Server</span></div>
+          <div class="project-links"><a class="link-arrow" href="https://github.com/Omarjr33/projectf1" target="_blank" rel="noopener">Ver código</a></div>
+        </div>
+      </article>
+
+      <article class="project reveal" id="p-boda" data-cat="front">
+        <button class="cover-btn" type="button" data-preview="assets/projects/boda.webp" data-title="Invitación de boda interactiva" aria-label="Ver vista previa de la invitación de boda">
+          <img class="cover cover-img" src="assets/projects/boda.webp" alt="Sobre cerrado de la invitación de boda" loading="lazy">
+          <span class="cover-hint">Ver captura</span>
+        </button>
+        <div class="project-body">
+          <div class="project-top"><span class="badge">Cliente</span><span class="project-year">2026</span></div>
+          <h3>Invitaciones de boda interactivas</h3>
+          <p>Un sobre que se abre al tocarlo, confirmación de asistencia, cuenta regresiva, mapa y galería, con panel para los novios. Optimizadas para compartir por WhatsApp.</p>
+          <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Netlify</span></div>
+        </div>
+      </article>
+
+      <article class="project reveal" id="p-movie" data-cat="front">
+        <button class="cover-btn" type="button" data-preview="assets/projects/movie.webp" data-title="MovieFlix" aria-label="Ver vista previa de MovieFlix">
+          <img class="cover cover-img" src="assets/projects/movie.webp" alt="Portada de MovieFlix" loading="lazy">
+          <span class="cover-hint">Ver captura</span>
+        </button>
+        <div class="project-body">
+          <div class="project-top"><span class="badge">Open source</span><span class="project-year">2025</span></div>
+          <h3>MovieFlix</h3>
+          <p>Catálogo de películas estilo streaming con buscador, tendencias y fichas, hecho a mano con HTML, CSS y JavaScript.</p>
+          <div class="tags"><span>JavaScript</span><span>CSS</span></div>
+          <div class="project-links"><a class="link-arrow" href="https://github.com/Omarjr33/movie" target="_blank" rel="noopener">Ver código</a></div>
+        </div>
+      </article>
+
+      <article class="project reveal" id="p-inventario" data-cat="backend">
+        <div class="cover cover-term" aria-hidden="true">
+          <div class="term-bar"><i></i><i></i><i></i><span>dotnet run · SGI</span></div>
+<pre>╔════════════════════════════════════╗
+║            MENÚ PRINCIPAL          ║
+╠════════════════════════════════════╣
+║ 1. Gestión de Productos            ║
+║ 2. Gestión de Ventas               ║
+║ 3. Gestión de Compras              ║
+║ 4. Movimientos de Caja             ║
+║ 5. Gestión de Planes Promocionales ║
+║ 6. Gestión de Personas             ║
+║ 0. Salir                           ║
+╚════════════════════════════════════╝
+Seleccione una opción: <b>_</b></pre>
+        </div>
+        <div class="project-body">
+          <div class="project-top"><span class="badge">Open source</span><span class="project-year">2025</span></div>
+          <h3>Sistema de gestión de compras e inventario</h3>
+          <p>Aplicación de consola en C# con arquitectura por capas: dominio, infraestructura y aplicación. Productos, ventas, compras, caja, planes promocionales y terceros sobre MySQL.</p>
+          <div class="tags"><span>C#</span><span>.NET</span><span>MySQL</span><span>Clean Architecture</span></div>
+          <div class="project-links"><a class="link-arrow" href="https://github.com/Omarjr33/inventario" target="_blank" rel="noopener">Ver código</a></div>
+        </div>
+      </article>
+
+      <article class="project reveal" id="p-betplay" data-cat="backend">
+        <div class="cover cover-term" aria-hidden="true">
+          <div class="term-bar"><i></i><i></i><i></i><span>python MainApp.py</span></div>
+<pre>Bienvenido al sistema de gestión
+de equipos de fútbol
+
+1. Registrar equipo
+2. Registrar integrante de equipo
+3. Ver estadísticas de equipos
+4. Ver estadísticas de jugadores
+5. Salir
+
+Seleccione una opción: <b>1</b>
+Registro de nuevo equipo
+Ingrese el nombre del equipo: <b>_</b></pre>
+        </div>
+        <div class="project-body">
+          <div class="project-top"><span class="badge">Open source</span><span class="project-year">2025</span></div>
+          <h3>Liga BetPlay</h3>
+          <p>Gestión de equipos, plantillas y estadísticas de la liga colombiana en consola, con persistencia en un archivo JSON.</p>
+          <div class="tags"><span>Python</span><span>JSON</span></div>
+          <div class="project-links"><a class="link-arrow" href="https://github.com/Omarjr33/Betplay-json" target="_blank" rel="noopener">Ver código</a></div>
+        </div>
+      </article>
+
+      <article class="project reveal" id="p-hamburguesa" data-cat="front">
+        <button class="cover-btn" type="button" data-preview="assets/projects/hamburguesa.webp" data-title="Landing de hamburguesas" aria-label="Ver vista previa de la landing de hamburguesas">
+          <img class="cover cover-img" src="assets/projects/hamburguesa.webp" alt="Portada de la landing de hamburguesas" loading="lazy">
+          <span class="cover-hint">Ver captura</span>
+        </button>
+        <div class="project-body">
+          <div class="project-top"><span class="badge">Open source</span><span class="project-year">2025</span></div>
+          <h3>Landing para restaurante</h3>
+          <p>Página de presentación de un restaurante de hamburguesas con menú del día, servicios y contacto.</p>
+          <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+          <div class="project-links"><a class="link-arrow" href="https://github.com/Omarjr33/webhamburgesa" target="_blank" rel="noopener">Ver código</a></div>
+        </div>
+      </article>
+
+      <article class="project reveal" id="p-campuscar" data-cat="backend">
+        <button class="cover-btn" type="button" data-preview="assets/projects/campuscar.webp" data-title="CampusCar · modelo entidad-relación" aria-label="Ver el modelo entidad-relación de CampusCar">
+          <img class="cover cover-img cover-contain" src="assets/projects/campuscar.webp" alt="Diagrama entidad-relación de CampusCar" loading="lazy">
+          <span class="cover-hint">Ver diagrama</span>
+        </button>
+        <div class="project-body">
+          <div class="project-top"><span class="badge">Open source</span><span class="project-year">2025</span></div>
+          <h3>CampusCar · Base de datos</h3>
+          <p>Diseño de base de datos para un concesionario: modelo entidad-relación, triggers de disponibilidad e índices.</p>
+          <div class="tags"><span>MySQL</span><span>SQL</span></div>
+          <div class="project-links"><a class="link-arrow" href="https://github.com/Omarjr33/CampusCar" target="_blank" rel="noopener">Ver código</a></div>
+        </div>
+      </article>
+
+      <article class="project reveal" id="p-iglesia" data-cat="web">
+        <div class="cover cover-iglesia"><span class="cover-ui"><i></i><i></i><i></i></span></div>
+        <div class="project-body">
+          <div class="project-top"><span class="badge">Cliente</span><span class="project-year">2025</span></div>
+          <h3>Sistema de gestión para iglesias</h3>
+          <p>App administrativa con registro de miembros, control de asistencias, contaduría y emisión de informes en PDF.</p>
+          <div class="tags"><span>Web app</span><span>MySQL</span><span>PDF</span></div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="github-cta reveal">
+      <div>
+        <p class="eyebrow">GitHub</p>
+        <h3>Más repositorios en <a href="https://github.com/Omarjr33" target="_blank" rel="noopener">github.com/Omarjr33</a></h3>
+        <p class="muted">Talleres, ejercicios de Python, SQL y C#, y experimentos que voy publicando.</p>
+      </div>
+      <ul class="repo-list" id="repo-list" aria-live="polite"></ul>
+    </div>
+  </section>
+
+  <!-- HABILIDADES -->
+  <section class="section container" id="habilidades">
+    <div class="section-head reveal">
+      <p class="eyebrow">04 · Habilidades</p>
+      <h2>Con qué construyo.</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <h3>Frontend</h3>
+        <div class="tags tags-lg"><span>React</span><span>Next.js</span><span>TypeScript</span><span>JavaScript</span><span>Vite</span><span>Tailwind CSS</span><span>HTML · CSS</span><span>Bootstrap</span></div>
+      </div>
+      <div class="skill-card reveal" style="--d:.05s">
+        <h3>Backend y datos</h3>
+        <div class="tags tags-lg"><span>Node.js</span><span>Python</span><span>FastAPI</span><span>C#</span><span>Java</span><span>PostgreSQL</span><span>MySQL</span><span>Prisma</span><span>SQL</span></div>
+      </div>
+      <div class="skill-card reveal" style="--d:.1s">
+        <h3>Cloud y herramientas</h3>
+        <div class="tags tags-lg"><span>AWS</span><span>Docker</span><span>Git · GitHub</span><span>Linux</span><span>Caddy</span><span>VS Code</span><span>Scrum</span></div>
+      </div>
+      <div class="skill-card reveal" style="--d:.15s">
+        <h3>Diseño y audiovisual</h3>
+        <div class="tags tags-lg"><span>UI/UX</span><span>Figma</span><span>Photoshop</span><span>After Effects</span><span>Premiere Pro</span><span>Lightroom</span><span>Canva</span></div>
+      </div>
+    </div>
+
+    <div class="edu">
+      <h3 class="edu-title reveal">Formación</h3>
+      <ul class="edu-list">
+        <li class="reveal"><strong>Campusland</strong><span>Desarrollo de software</span></li>
+        <li class="reveal" style="--d:.05s"><strong>SENA</strong><span>Técnico en Sistemas</span></li>
+        <li class="reveal" style="--d:.1s"><strong>Universidad del Magdalena</strong><span>Cine y Audiovisuales</span></li>
+        <li class="reveal" style="--d:.15s"><strong>Southern New Hampshire University</strong><span>Cursos en Administración y Gestión Laboral</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="section container" id="contacto">
+    <div class="contact-card reveal">
+      <div class="contact-glow" aria-hidden="true"></div>
+      <p class="eyebrow eyebrow-light">05 · Contacto</p>
+      <h2>¿Tienes un proyecto en mente?<br>Hablemos.</h2>
+      <p>Respondo en menos de 24 horas. Cuéntame qué necesitas y te propongo cómo construirlo.</p>
+      <div class="contact-actions">
+        <a class="btn btn-light" href="mailto:omarjrcardona33@gmail.com">omarjrcardona33@gmail.com</a>
+        <a class="btn btn-outline" href="https://wa.me/573013772740" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+      <div class="contact-links">
+        <a href="https://www.linkedin.com/in/omar-cardona33/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/Omarjr33" target="_blank" rel="noopener">GitHub</a>
+        <a href="assets/cv/Omar-Cardona-CV.pdf" download>Descargar CV</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer container">
+  <span>© <span id="year"></span> Omar Cardona</span>
+  <span class="muted">Hecho a mano con HTML, CSS y JavaScript.</span>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden>
+  <div class="lightbox-backdrop" data-close></div>
+  <div class="lightbox-panel" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+    <div class="lightbox-head">
+      <div class="lightbox-dots"><i></i><i></i><i></i></div>
+      <span class="lightbox-title" id="lightbox-title"></span>
+      <div class="lightbox-actions">
+        <button class="lightbox-tab is-active" type="button" data-mode="image">Captura</button>
+        <button class="lightbox-tab" type="button" data-mode="live" hidden>En vivo</button>
+        <a class="lightbox-open" id="lightbox-open" href="#" target="_blank" rel="noopener" hidden>Abrir ↗</a>
+        <button class="lightbox-close" type="button" data-close aria-label="Cerrar">✕</button>
+      </div>
+    </div>
+    <div class="lightbox-body">
+      <img id="lightbox-img" src="" alt="">
+      <iframe id="lightbox-frame" title="Vista en vivo" loading="lazy" hidden></iframe>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

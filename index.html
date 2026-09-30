@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Omar Cardona · Desarrollador Full Stack</title>
+  <meta name="description" content="Portafolio interactivo de Omar Cardona, desarrollador full stack en Colombia. Explora el escritorio, entra al computador y descubre cada proyecto.">
+  <meta name="theme-color" content="#151821">
+  <meta property="og:title" content="Omar Cardona · Desarrollador Full Stack">
+  <meta property="og:description" content="Un escritorio para explorar: entra al computador y recorre mis proyectos.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+
+<!-- ============ PRECARGA ============ -->
+<div class="preloader" id="preloader">
+  <div class="pre-inner">
+    <div class="pre-logo">OC</div>
+    <div class="pre-name">Omar Cardona</div>
+    <div class="pre-sub" id="pre-text">Cargando el escritorio…</div>
+    <div class="pre-track"><div class="pre-bar" id="pre-bar"></div></div>
+  </div>
+</div>
+<div class="fade" id="fade" aria-hidden="true"></div>
+
+<!-- ============ ESCENA: EL ESCRITORIO ============ -->
+<div class="scene-wrap" id="scene-wrap">
+  <header class="scene-top">
+    <div class="scene-brand"><span class="mark">OC</span> Omar Cardona <span class="sep">/</span> <span class="muted">portafolio</span></div>
+    <div class="scene-actions">
+      <button class="scene-btn" id="btn-help" type="button">Ayuda</button>
+      <a class="scene-btn" href="clasico.html">Versión clásica</a>
+    </div>
+  </header>
+
+  <div class="scene" id="scene">
+    <div class="scene3d" id="scene3d"></div>
+    <svg class="room" hidden viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="room-title">
+      <title id="room-title">Escritorio de Omar. Toca los objetos para explorar y el computador para entrar.</title>
+      <defs>
+        <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#2a2f3d"/><stop offset="1" stop-color="#1b1f2a"/>
+        </linearGradient>
+        <radialGradient id="lampPool" cx="0.5" cy="0" r="0.9">
+          <stop offset="0" stop-color="#ffc978" stop-opacity=".55"/><stop offset="1" stop-color="#ffc978" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#0a1330"/><stop offset="1" stop-color="#22355f"/>
+        </linearGradient>
+        <linearGradient id="deskTop" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#b98761"/><stop offset="1" stop-color="#9c6d49"/>
+        </linearGradient>
+        <linearGradient id="deskFront" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#6d4a30"/><stop offset="1" stop-color="#4b3220"/>
+        </linearGradient>
+        <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#0c1428"/><stop offset="1" stop-color="#132247"/>
+        </linearGradient>
+        <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#fff" stop-opacity=".10"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/>
+        </linearGradient>
+        <pattern id="keys" width="27" height="24" patternUnits="userSpaceOnUse">
+          <rect x="2" y="2" width="22" height="19" rx="4" fill="#3b3f4b"/>
+        </pattern>
+        <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="8"/></filter>
+        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
+      </defs>
+
+      <!-- Pared -->
+      <rect width="1600" height="560" fill="url(#wall)"/>
+      <rect class="lamp-pool" x="60" y="250" width="700" height="320" fill="url(#lampPool)"/>
+      <rect y="540" width="1600" height="22" fill="#151821"/>
+
+      <!-- Ventana -->
+      <g class="window-scene">
+        <rect x="84" y="74" width="372" height="312" rx="6" fill="#d9cfbf"/>
+        <rect x="98" y="88" width="344" height="284" fill="url(#sky)"/>
+        <g fill="#fff" opacity=".9">
+          <circle cx="140" cy="120" r="1.6"/><circle cx="210" cy="150" r="1.2"/><circle cx="300" cy="105" r="1.4"/><circle cx="390" cy="160" r="1.1"/><circle cx="250" cy="200" r="1"/><circle cx="170" cy="230" r="1.3"/><circle cx="330" cy="240" r="1.2"/><circle cx="410" cy="120" r="1.5"/>
+        </g>
+        <circle cx="360" cy="140" r="30" fill="#fff5cf" filter="url(#glow)" opacity=".5"/>
+        <circle cx="360" cy="140" r="24" fill="#fff4cc"/>
+        <g fill="#0a1024">
+          <rect x="98" y="300" width="40" height="72"/><rect x="142" y="270" width="36" height="102"/><rect x="182" y="320" width="50" height="52"/><rect x="236" y="250" width="30" height="122"/><rect x="270" y="290" width="46" height="82"/><rect x="320" y="310" width="34" height="62"/><rect x="358" y="262" width="26" height="110"/><rect x="388" y="300" width="54" height="72"/>
+        </g>
+        <g fill="#ffd982" opacity=".8">
+          <rect x="150" y="282" width="5" height="6"/><rect x="162" y="296" width="5" height="6"/><rect x="244" y="262" width="5" height="6"/><rect x="252" y="280" width="5" height="6"/><rect x="284" y="304" width="5" height="6"/><rect x="366" y="276" width="5" height="6"/><rect x="398" y="316" width="5" height="6"/><rect x="108" y="318" width="5" height="6"/>
+        </g>
+        <rect x="264" y="88" width="10" height="284" fill="#d9cfbf"/>
+        <rect x="98" y="226" width="344" height="10" fill="#d9cfbf"/>
+      </g>
+
+      <!-- Cuadros: formación -->
+      <g class="hotspot" data-spot="frames" tabindex="0" role="button" aria-label="Cuadros: formación">
+        <rect x="556" y="66" width="114" height="146" rx="4" fill="#3a2d24"/>
+        <rect x="566" y="76" width="94" height="126" fill="#f3ede2"/>
+        <rect x="586" y="96" width="54" height="6" rx="3" fill="#2a2a2a" opacity=".7"/>
+        <rect x="580" y="112" width="66" height="3" fill="#999"/><rect x="580" y="122" width="66" height="3" fill="#999"/><rect x="586" y="132" width="54" height="3" fill="#999"/>
+        <circle cx="613" cy="170" r="12" fill="#c9a24a"/><path d="M606 178 l-6 18 8-4 5 6 z" fill="#b3402f"/><path d="M620 178 l6 18-8-4-5 6z" fill="#b3402f"/>
+        <rect x="690" y="86" width="176" height="126" rx="4" fill="#3a2d24"/>
+        <rect x="700" y="96" width="156" height="106" fill="#f3ede2"/>
+        <rect x="726" y="114" width="104" height="6" rx="3" fill="#2a2a2a" opacity=".7"/>
+        <rect x="716" y="132" width="124" height="3" fill="#999"/><rect x="716" y="142" width="124" height="3" fill="#999"/><rect x="730" y="152" width="96" height="3" fill="#999"/>
+        <rect x="760" y="172" width="36" height="14" rx="2" fill="#4f9d69"/>
+        <rect class="hit" x="550" y="60" width="322" height="158"/>
+      </g>
+
+      <!-- Notas adhesivas: habilidades -->
+      <g class="hotspot" data-spot="notes" tabindex="0" role="button" aria-label="Notas: habilidades">
+        <g transform="rotate(-6 1035 155)"><rect x="1000" y="120" width="70" height="70" fill="#f6d86b"/><rect x="1024" y="116" width="22" height="8" fill="#000" opacity=".12"/><text x="1035" y="162" text-anchor="middle" font-size="15" font-family="JetBrains Mono, monospace" font-weight="700" fill="#5a4a10">React</text></g>
+        <g transform="rotate(5 1112 145)"><rect x="1078" y="110" width="70" height="70" fill="#9ed0f5"/><rect x="1102" y="106" width="22" height="8" fill="#000" opacity=".12"/><text x="1113" y="152" text-anchor="middle" font-size="14" font-family="JetBrains Mono, monospace" font-weight="700" fill="#173a55">Python</text></g>
+        <g transform="rotate(-3 1075 228)"><rect x="1040" y="192" width="70" height="70" fill="#f5a7bf"/><rect x="1064" y="188" width="22" height="8" fill="#000" opacity=".12"/><text x="1075" y="226" text-anchor="middle" font-size="12" font-family="JetBrains Mono, monospace" font-weight="700" fill="#5a1f33">deploy</text><text x="1075" y="242" text-anchor="middle" font-size="12" font-family="JetBrains Mono, monospace" font-weight="700" fill="#5a1f33">AWS ✓</text></g>
+        <rect class="hit" x="990" y="100" width="170" height="172"/>
+      </g>
+
+      <!-- Repisa -->
+      <rect x="1180" y="206" width="380" height="14" rx="3" fill="#8a6242"/>
+      <rect x="1200" y="220" width="12" height="28" fill="#5f3f28"/><rect x="1530" y="220" width="12" height="28" fill="#5f3f28"/>
+      <g>
+        <rect x="1196" y="132" width="22" height="74" fill="#c94f4f"/><rect x="1220" y="118" width="26" height="88" fill="#3f6fb5"/><rect x="1248" y="140" width="20" height="66" fill="#e2b04a"/><rect x="1270" y="126" width="24" height="80" fill="#4f9d69"/><rect x="1296" y="146" width="18" height="60" fill="#e07b39"/>
+        <rect x="1200" y="150" width="14" height="3" fill="#fff" opacity=".5"/><rect x="1226" y="140" width="14" height="3" fill="#fff" opacity=".5"/><rect x="1275" y="150" width="14" height="3" fill="#fff" opacity=".5"/>
+      </g>
+      <!-- Camara: audiovisual -->
+      <g class="hotspot" data-spot="camera" tabindex="0" role="button" aria-label="Cámara: producción audiovisual y marketing">
+        <rect x="1350" y="146" width="122" height="60" rx="8" fill="#2b2e36"/>
+        <rect x="1366" y="134" width="40" height="14" rx="3" fill="#2b2e36"/>
+        <rect x="1440" y="138" width="22" height="10" rx="2" fill="#3b3f4b"/>
+        <circle cx="1410" cy="176" r="24" fill="#14161c"/><circle cx="1410" cy="176" r="15" fill="#2f4a75"/><circle cx="1404" cy="170" r="4" fill="#fff" opacity=".5"/>
+        <rect x="1360" y="160" width="26" height="8" rx="2" fill="#e04e39"/>
+        <rect class="hit" x="1344" y="128" width="136" height="84"/>
+      </g>
+      <!-- Planta en repisa -->
+      <g>
+        <rect x="1494" y="166" width="46" height="40" rx="4" fill="#b3553f"/>
+        <g class="leaves" fill="#4f9d69"><ellipse cx="1500" cy="150" rx="18" ry="9" transform="rotate(-35 1500 150)"/><ellipse cx="1532" cy="146" rx="18" ry="9" transform="rotate(30 1532 146)"/><ellipse cx="1516" cy="134" rx="10" ry="20"/></g>
+      </g>
+
+      <!-- Lampara -->
+      <g class="hotspot lamp" data-spot="lamp" tabindex="0" role="button" aria-label="Lámpara: encender o apagar">
+        <polygon class="lamp-beam" points="352,322 468,322 640,560 210,560" fill="#ffd27a" opacity=".16"/>
+        <ellipse cx="300" cy="566" rx="46" ry="9" fill="#23262e"/>
+        <rect x="294" y="330" width="12" height="236" fill="#2b2e36"/>
+        <line x1="300" y1="334" x2="404" y2="292" stroke="#2b2e36" stroke-width="12" stroke-linecap="round"/>
+        <polygon points="368,282 452,282 470,322 350,322" fill="#2f333d"/>
+        <ellipse class="lamp-bulb" cx="410" cy="322" rx="50" ry="8" fill="#ffe8a8"/>
+        <rect class="hit" x="250" y="270" width="230" height="300"/>
+      </g>
+
+      <!-- Escritorio -->
+      <rect y="560" width="1600" height="164" fill="url(#deskTop)"/>
+      <rect y="560" width="1600" height="4" fill="#d5a67c" opacity=".8"/>
+      <rect y="724" width="1600" height="176" fill="url(#deskFront)"/>
+      <rect y="724" width="1600" height="4" fill="#3b2617"/>
+      <!-- cajones -->
+      <rect x="1180" y="752" width="340" height="110" rx="6" fill="#5c3e28" stroke="#3b2617" stroke-width="3"/>
+      <rect x="1320" y="802" width="60" height="10" rx="5" fill="#c9a24a"/>
+      <rect x="80" y="752" width="340" height="110" rx="6" fill="#5c3e28" stroke="#3b2617" stroke-width="3"/>
+      <rect x="220" y="802" width="60" height="10" rx="5" fill="#c9a24a"/>
+
+      <!-- Monitor -->
+      <g class="hotspot monitor" data-spot="monitor" tabindex="0" role="button" aria-label="Computador: entrar al sistema">
+        <ellipse cx="800" cy="576" rx="130" ry="12" fill="#23262e"/>
+        <rect x="778" y="520" width="44" height="52" fill="#2b2e36"/>
+        <rect x="504" y="214" width="592" height="362" rx="16" fill="#1f2128"/>
+        <rect x="504" y="214" width="592" height="362" rx="16" fill="none" stroke="#3a3e4a" stroke-width="2"/>
+        <rect x="520" y="230" width="560" height="330" rx="6" fill="url(#screen)"/>
+        <!-- pantalla de bloqueo -->
+        <g class="screen-ui" font-family="JetBrains Mono, monospace">
+          <text x="540" y="256" font-size="13" fill="#7dd3fc" opacity=".9">OmarOS 1.0 — bloqueado</text>
+          <text x="1062" y="256" font-size="13" fill="#7dd3fc" opacity=".6" text-anchor="end" class="screen-clock">--:--</text>
+          <rect x="756" y="318" width="88" height="88" rx="22" fill="#eef2ff"/>
+          <text x="800" y="376" text-anchor="middle" font-size="40" font-weight="700" fill="#0c1428" font-family="Manrope, sans-serif">OC</text>
+          <text x="800" y="446" text-anchor="middle" font-size="22" font-weight="700" fill="#fff" font-family="Manrope, sans-serif">Omar Cardona</text>
+          <text x="800" y="474" text-anchor="middle" font-size="13" fill="#9fb3d9">Desarrollador Full Stack</text>
+          <g class="screen-prompt"><text x="800" y="522" text-anchor="middle" font-size="13" fill="#7dd3fc">› toca la pantalla para entrar</text><rect class="cursor" x="918" y="511" width="8" height="14" fill="#7dd3fc"/></g>
+        </g>
+        <rect x="520" y="230" width="560" height="330" rx="6" fill="url(#glass)"/>
+        <rect class="hit" x="504" y="214" width="592" height="362" rx="16"/>
+      </g>
+
+      <!-- Teclado y mouse -->
+      <rect x="566" y="612" width="450" height="84" rx="10" fill="#2c2f38"/>
+      <rect x="576" y="622" width="430" height="64" rx="6" fill="url(#keys)"/>
+      <rect x="690" y="668" width="200" height="14" rx="4" fill="#3b3f4b"/>
+      <rect x="1050" y="626" width="46" height="70" rx="23" fill="#2c2f38"/>
+      <line x1="1073" y1="630" x2="1073" y2="656" stroke="#3b3f4b" stroke-width="2"/>
+
+      <!-- Libreta: sobre mi -->
+      <g class="hotspot" data-spot="notebook" tabindex="0" role="button" aria-label="Libreta: sobre mí">
+        <g transform="rotate(-7 260 655)">
+          <rect x="150" y="596" width="220" height="118" rx="6" fill="#f4efe6"/>
+          <rect x="150" y="596" width="220" height="118" rx="6" fill="none" stroke="#d9cfbf" stroke-width="2"/>
+          <g fill="#3b3f4b"><circle cx="170" cy="596" r="4"/><circle cx="196" cy="596" r="4"/><circle cx="222" cy="596" r="4"/><circle cx="248" cy="596" r="4"/><circle cx="274" cy="596" r="4"/><circle cx="300" cy="596" r="4"/><circle cx="326" cy="596" r="4"/><circle cx="352" cy="596" r="4"/></g>
+          <text x="170" y="632" font-size="15" font-family="JetBrains Mono, monospace" font-weight="700" fill="#2a2a2a">sobre mí</text>
+          <g stroke="#b8b0a2" stroke-width="2"><line x1="170" y1="652" x2="350" y2="652"/><line x1="170" y1="670" x2="350" y2="670"/><line x1="170" y1="688" x2="310" y2="688"/><line x1="170" y1="704" x2="340" y2="704"/></g>
+        </g>
+        <rect x="380" y="612" width="14" height="110" rx="6" fill="#1f5fa8" transform="rotate(20 387 667)"/>
+        <rect class="hit" x="130" y="578" width="290" height="150"/>
+      </g>
+
+      <!-- Taza: disponibilidad -->
+      <g class="hotspot" data-spot="mug" tabindex="0" role="button" aria-label="Taza de café: disponibilidad">
+        <g class="steam" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".45">
+          <path d="M1150 590 c-10 -14 10 -22 0 -38"/><path d="M1172 592 c-10 -14 10 -22 0 -38"/><path d="M1194 590 c-10 -14 10 -22 0 -38"/>
+        </g>
+        <path d="M1212 622 h18 a16 16 0 0 1 0 34 h-18" fill="none" stroke="#e04e39" stroke-width="10"/>
+        <rect x="1136" y="600" width="80" height="84" rx="10" fill="#e04e39"/>
+        <ellipse cx="1176" cy="602" rx="40" ry="9" fill="#4a2c1a"/>
+        <ellipse cx="1176" cy="602" rx="40" ry="9" fill="none" stroke="#ff8a75" stroke-width="3"/>
+        <rect class="hit" x="1126" y="545" width="120" height="145"/>
+      </g>
+
+      <!-- Telefono: contacto -->
+      <g class="hotspot" data-spot="phone" tabindex="0" role="button" aria-label="Teléfono: contacto">
+        <g transform="rotate(10 1299 660)">
+          <rect x="1262" y="600" width="74" height="120" rx="12" fill="#1f2128"/>
+          <rect x="1268" y="608" width="62" height="104" rx="8" fill="#1d3557"/>
+          <rect x="1276" y="618" width="46" height="8" rx="4" fill="#fff" opacity=".5"/>
+          <rect x="1276" y="634" width="46" height="26" rx="4" fill="#25d366"/>
+          <text x="1299" y="651" text-anchor="middle" font-size="11" font-family="JetBrains Mono, monospace" font-weight="700" fill="#fff">1</text>
+          <rect x="1276" y="668" width="46" height="8" rx="4" fill="#fff" opacity=".25"/><rect x="1276" y="682" width="30" height="8" rx="4" fill="#fff" opacity=".25"/>
+        </g>
+        <circle class="phone-ping" cx="1332" cy="606" r="9" fill="#ff4d4d"/>
+        <rect class="hit" x="1246" y="584" width="106" height="150"/>
+      </g>
+
+      <!-- Bandeja de papeles: experiencia -->
+      <g class="hotspot" data-spot="tray" tabindex="0" role="button" aria-label="Carpeta: experiencia laboral">
+        <rect x="1380" y="618" width="170" height="14" rx="3" fill="#e9e4da"/>
+        <rect x="1388" y="632" width="170" height="14" rx="3" fill="#f4efe6"/>
+        <rect x="1376" y="646" width="184" height="36" rx="4" fill="#e2b04a"/>
+        <rect x="1376" y="640" width="70" height="12" rx="3" fill="#e2b04a"/>
+        <text x="1468" y="670" text-anchor="middle" font-size="13" font-family="JetBrains Mono, monospace" font-weight="700" fill="#5a4a10">EXPERIENCIA</text>
+        <rect class="hit" x="1366" y="606" width="204" height="86"/>
+      </g>
+
+      <!-- Planta grande -->
+      <g>
+        <rect x="1476" y="486" width="72" height="76" rx="6" fill="#b3553f"/>
+        <rect x="1470" y="480" width="84" height="14" rx="4" fill="#c9664f"/>
+        <g class="leaves big" fill="#4f9d69">
+          <ellipse cx="1470" cy="440" rx="30" ry="14" transform="rotate(-40 1470 440)"/><ellipse cx="1550" cy="436" rx="30" ry="14" transform="rotate(35 1550 436)"/><ellipse cx="1512" cy="410" rx="16" ry="44"/><ellipse cx="1488" cy="400" rx="14" ry="30" transform="rotate(-20 1488 400)"/><ellipse cx="1538" cy="398" rx="14" ry="30" transform="rotate(22 1538 398)"/>
+        </g>
+      </g>
+
+      <!-- Pegatina en el monitor -->
+      <g transform="rotate(-8 1080 560)"><rect x="1064" y="548" width="34" height="34" rx="6" fill="#7dd3fc"/><text x="1081" y="571" text-anchor="middle" font-size="14" font-weight="800" font-family="Manrope, sans-serif" fill="#0c1428">JS</text></g>
+    </svg>
+
+    <div class="tooltip" id="tooltip" hidden></div>
+  </div>
+
+  <div class="scene-hint" id="scene-hint">
+    <span class="key">Toca</span> los objetos del escritorio para explorar. <span class="key">Toca el computador</span> para entrar al sistema.
+  </div>
+
+  <!-- Panel de objeto -->
+  <div class="panel" id="panel" hidden>
+    <div class="panel-card" role="dialog" aria-modal="false" aria-labelledby="panel-title">
+      <div class="panel-head"><span class="panel-kicker" id="panel-kicker"></span><button class="panel-close" id="panel-close" type="button" aria-label="Cerrar">✕</button></div>
+      <h2 class="panel-title" id="panel-title"></h2>
+      <div class="panel-body" id="panel-body"></div>
+      <div class="panel-actions" id="panel-actions"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ EL SISTEMA: OmarOS ============ -->
+<div class="os" id="os" hidden>
+  <div class="boot" id="boot"><pre id="boot-log"></pre></div>
+
+  <div class="desktop" id="desktop" hidden>
+    <div class="wallpaper" aria-hidden="true">
+      <div class="wp-grid"></div>
+      <div class="wp-text">OmarOS<span>1.0 · build 2026.09</span></div>
+    </div>
+
+    <div class="icons" id="icons" role="list">
+      <button class="icon" data-app="explorer" role="listitem"><i class="ico ico-folder"></i><span>Proyectos</span></button>
+      <button class="icon" data-app="terminal" role="listitem"><i class="ico ico-term"></i><span>PowerShell</span></button>
+      <button class="icon" data-app="about" role="listitem"><i class="ico ico-txt"></i><span>sobre-mi.txt</span></button>
+      <button class="icon" data-app="experience" role="listitem"><i class="ico ico-brief"></i><span>Experiencia</span></button>
+      <button class="icon" data-app="skills" role="listitem"><i class="ico ico-chip"></i><span>Habilidades</span></button>
+      <button class="icon" data-app="contact" role="listitem"><i class="ico ico-mail"></i><span>Contacto</span></button>
+      <button class="icon" data-app="games" role="listitem"><i class="ico ico-games"></i><span>Juegos</span></button>
+      <a class="icon" href="assets/cv/Omar-Cardona-CV.pdf" download role="listitem"><i class="ico ico-pdf"></i><span>CV.pdf</span></a>
+      <a class="icon" href="https://github.com/Omarjr33" target="_blank" rel="noopener" role="listitem"><i class="ico ico-git"></i><span>GitHub</span></a>
+      <button class="icon" data-app="power" role="listitem"><i class="ico ico-power"></i><span>Salir</span></button>
+    </div>
+
+    <div class="windows" id="windows"></div>
+
+    <div class="taskbar">
+      <button class="start" id="start-btn" type="button" aria-haspopup="menu" aria-expanded="false"><span class="start-logo">OC</span></button>
+      <div class="start-menu" id="start-menu" hidden role="menu">
+        <div class="sm-head"><span class="start-logo">OC</span><div><strong>Omar Cardona</strong><span>Desarrollador Full Stack</span></div></div>
+        <button data-app="explorer" role="menuitem"><i class="ico ico-folder"></i>Proyectos</button>
+        <button data-app="terminal" role="menuitem"><i class="ico ico-term"></i>PowerShell</button>
+        <button data-app="about" role="menuitem"><i class="ico ico-txt"></i>Sobre mí</button>
+        <button data-app="experience" role="menuitem"><i class="ico ico-brief"></i>Experiencia</button>
+        <button data-app="skills" role="menuitem"><i class="ico ico-chip"></i>Habilidades</button>
+        <button data-app="contact" role="menuitem"><i class="ico ico-mail"></i>Contacto</button>
+        <button data-app="games" role="menuitem"><i class="ico ico-games"></i>Juegos</button>
+        <a href="assets/cv/Omar-Cardona-CV.pdf" download role="menuitem"><i class="ico ico-pdf"></i>Descargar CV</a>
+        <a href="clasico.html" role="menuitem"><i class="ico ico-txt"></i>Versión clásica</a>
+        <button data-app="power" class="sm-power" role="menuitem"><i class="ico ico-power"></i>Apagar y volver al escritorio</button>
+      </div>
+      <div class="tasks" id="tasks"></div>
+      <div class="tray">
+        <span class="tray-net" title="Conectado">●</span>
+        <span id="clock" class="clock">--:--</span>
+        <button class="tray-exit" id="os-exit" type="button" title="Volver al escritorio">⏻</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Ayuda -->
+<div class="help" id="help" hidden>
+  <div class="help-card">
+    <button class="panel-close" id="help-close" type="button" aria-label="Cerrar">✕</button>
+    <p class="panel-kicker">Guía rápida</p>
+    <h2>Este portafolio se explora.</h2>
+    <ul>
+      <li><strong>En el escritorio</strong>, cada objeto cuenta algo: la libreta, la carpeta, las notas, la cámara, la taza, el teléfono.</li>
+      <li><strong>Toca el computador</strong> para entrar a OmarOS, un sistema con sus propias ventanas.</li>
+      <li><strong>Dentro</strong>, abre <em>Proyectos</em> y toca uno: se muestra en una consola PowerShell con su captura, su stack y sus enlaces.</li>
+      <li><strong>PowerShell</strong> también acepta comandos reales: escribe <code>help</code>.</li>
+      <li><strong>Hay juegos</strong>: triqui en la libreta del escritorio, y Snake y triqui dentro del computador.</li>
+      <li>¿Prefieres leer sin explorar? Está la <a href="clasico.html">versión clásica</a>.</li>
+    </ul>
+  </div>
+</div>
+
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/"}}</script>
+<script src="js/games.js" defer></script>
+<script src="js/game.js" defer></script>
+<script type="module" src="js/scene3d.js"></script>
+</body>
+</html>
