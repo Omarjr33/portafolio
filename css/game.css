@@ -60,6 +60,24 @@ a { color: inherit; }
 .scene { position: absolute; inset: 0; }
 .scene3d { position: absolute; inset: 0; }
 .scene3d canvas { display: block; width: 100% !important; height: 100% !important; }
+.scene3d::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(120% 90% at 50% 45%, transparent 55%, rgba(5,6,12,.55) 100%); }
+
+/* marcadores táctiles sobre los objetos 3D */
+.pins { position: absolute; inset: 0; z-index: 2; pointer-events: none; transition: opacity .3s ease; }
+.pins.is-off { opacity: 0; }
+.pins.is-off .pin { pointer-events: none; }
+.pin { position: absolute; left: 0; top: 0; display: flex; flex-direction: column-reverse; align-items: center; gap: 4px; margin: -32px 0 0 -40px; width: 80px; pointer-events: auto; color: #fff; font: 600 11px/1 var(--ui); text-shadow: 0 1px 3px rgba(0,0,0,.8); -webkit-tap-highlight-color: transparent; }
+.pin i { position: relative; width: 22px; height: 22px; border-radius: 50%; background: rgba(125,211,252,.22); border: 2px solid var(--accent); box-shadow: 0 0 0 0 rgba(125,211,252,.6); animation: pin-pulse 2.4s ease-out infinite; }
+.pin i::after { content: ""; position: absolute; inset: 5px; border-radius: 50%; background: var(--accent); }
+.pin span { padding: 3px 7px; border-radius: 999px; background: rgba(10,13,22,.72); white-space: nowrap; }
+.pin.is-out { visibility: hidden; }
+@keyframes pin-pulse { 0% { box-shadow: 0 0 0 0 rgba(125,211,252,.55); } 70%, 100% { box-shadow: 0 0 0 12px rgba(125,211,252,0); } }
+
+.pan-hint { position: absolute; left: 50%; bottom: 78px; z-index: 3; transform: translate(-50%, 8px); opacity: 0; pointer-events: none; padding: 8px 14px; border-radius: 999px; background: rgba(10,13,22,.8); border: 1px solid rgba(255,255,255,.12); color: #e8ecf5; font: 600 12px/1 var(--ui); white-space: nowrap; transition: opacity .4s ease, transform .4s ease; }
+.pan-hint.is-on { opacity: 1; transform: translate(-50%, 0); }
+.pan-hint span { color: var(--accent); display: inline-block; animation: nudge 1.4s ease-in-out infinite; }
+.pan-hint span:last-child { animation-direction: reverse; }
+@keyframes nudge { 50% { transform: translateX(-4px); } }
 .scene.is-fallback { display: grid; place-items: center; padding: 70px 12px 60px; }
 .scene.is-fallback .scene3d { display: none; }
 .scene-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -.01em; }
@@ -403,7 +421,8 @@ a { color: inherit; }
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .explorer { grid-template-columns: 1fr; }
-  .ex-side { display: flex; gap: 4px; overflow-x: auto; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.08); padding: 8px; }
+  .ex-side { display: flex; gap: 4px; overflow-x: auto; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.08); padding: 8px; scrollbar-width: none; }
+  .ex-side::-webkit-scrollbar { display: none; }
   .ex-side h4 { display: none; }
   .ex-side button { width: auto; white-space: nowrap; }
   .xp-item { grid-template-columns: 1fr; gap: 6px; }
@@ -425,12 +444,14 @@ a { color: inherit; }
   .wp-text { font-size: 2.2rem; bottom: 56px; right: 16px; }
   .term { font-size: 12px; }
   .doc { padding: 16px; }
-  .panel { place-items: end stretch; }
+  .panel, .panel.side-left, .panel.side-right { place-items: end stretch; padding: 16px 10px 10px; }
+  /* en el celular el panel deja ver arriba el objeto que se acercó */
+  .panel .panel-card, .panel.side-left .panel-card, .panel.side-right .panel-card { width: 100%; max-height: 56svh; overflow-y: auto; border-radius: 18px; }
   .start-menu { width: calc(100% - 16px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .room, .scene.is-zooming .room { transition: none; }
-  .steam path, .leaves, .phone-ping, .cursor, .term .caret { animation: none; }
+  .steam path, .leaves, .phone-ping, .cursor, .term .caret, .pin i, .pan-hint span { animation: none; }
   .win, .panel-card, .start-menu, .help-card { animation: none; }
 }

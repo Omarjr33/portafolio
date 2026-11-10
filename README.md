@@ -9,6 +9,12 @@ Tiene dos entradas:
 
 Al tocar un objeto la cámara se acerca a él y se abre un panel lateral (la libreta trae un triqui jugable; el teléfono muestra el contacto en su propia pantalla). Los cuadros muestran diplomas dibujados en canvas con los datos del CV; para usar los escaneos reales basta con guardar `assets/diplomas/sena.jpg` y `assets/diplomas/campusland.jpg` (se cargan solos si existen). Dentro de OmarOS hay una app **Juegos** con Snake y triqui (`js/games.js`).
 
+La escena ajusta la calidad al equipo: en computadores con margen agrega bloom (resplandor en pantalla, bombillo y luna) y sombras de 2048 px; en celulares y equipos modestos lo omite y baja la sombra a 1024 px. Si los primeros segundos van lentos, baja la resolución sola. Mientras OmarOS está abierto la escena deja de renderizar. En pantallas táctiles cada objeto lleva un marcador con su nombre, y en vertical el escritorio se recorre deslizando de lado.
+
+Las texturas fotográficas (`assets/textures/*.webp`: madera, pared, fieltro, piso y la vista nocturna de la ventana) y la planta 3D (`assets/models/planta.glb`, optimizada con gltf-transform) se generaron con Higgsfield. Cargan después de la escena: mientras llegan se ven las texturas de ruido y la planta hecha en código, y si fallan esas se quedan. La lluvia del vidrio, las luces de carros que barren la pared y la toma inicial (de la ventana al escritorio) están hechas en código.
+
+`assets/og-image.jpg` es la vista previa al compartir el enlace (1200×630). Si cambia la escena, conviene volver a capturarla.
+
 Si el navegador no tiene WebGL o el CDN de Three.js no responde en 12 s, `game.js` muestra la escena dibujada en SVG que sigue dentro de `index.html` como respaldo.
 
 Los datos de proyectos, experiencia, habilidades y contacto del modo interactivo viven al inicio de `js/game.js` (`PROJECTS`, `EXPERIENCE`, `SKILLS`, `CONTACT`). Se puede entrar directo al sistema con `index.html#os` o a un proyecto con `index.html#os/domiva`.

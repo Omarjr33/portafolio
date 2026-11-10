@@ -308,8 +308,9 @@ Ubicación: Colombia · trabajo remoto`;
   panel.addEventListener('click', e => { if (e.target === panel) closePanel(); });
 
   function runAction(action) {
-    if (action === 'enter') { closePanel(); enterOS(); }
-    else if (action.startsWith('spot:')) openPanel(action.slice(5));
+    const P = window.Portfolio;
+    if (action === 'enter') { if (P.flyIn) P.flyIn(); else { closePanel(); enterOS(); } }
+    else if (action.startsWith('spot:')) { if (P.focusSpot) P.focusSpot(action.slice(5)); else openPanel(action.slice(5)); }
     else if (action.startsWith('app:')) { closePanel(); enterOS(action.slice(4)); }
   }
 

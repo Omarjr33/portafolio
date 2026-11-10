@@ -644,6 +644,8 @@ body.no-scroll { overflow: hidden; }
   .tl-card::before { display: none; }
 }
 @media (max-width: 640px) {
+  .nav-actions .btn-ghost { display: none; }
+  .nav { gap: 10px; }
   .section { padding-top: 88px; }
   .stats { grid-template-columns: 1fr 1fr; gap: 10px; }
   .stat { padding: 20px 18px; }
